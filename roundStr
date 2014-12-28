@@ -1,0 +1,29 @@
+x = 9.74
+# use .find to find "." then cut it off using [x:y]
+# defines x as a string.
+str(x)
+# print (str(x)), "original number"
+# finds the decimal place in string of x and defines as decimal_place
+decimal_place = str(x).find(".")
+# print decimal_place, "original decimal place"
+# defines number(s) up to the decimal place as integer
+integer = str(x)[0:decimal_place]
+# print integer, "integer"
+# finds the tenth place and defines it as rounding_number
+rounding_number = str(x)[decimal_place+1:decimal_place+2]
+# print rounding_number, "rounding number"
+# adds a whole number to integer in case of rounding up
+new_string = str(x+1)
+# print new_string, "possible new string"
+# new decimal place must be determined for cases where tenth place rounds a '9' to the next value 
+new_decimal_place = new_string.find(".")
+# print new_decimal_place, "new decimal place"
+# defines the new integer that may or may not be used. This new integer will round up '9's properly
+new_integer = new_string[0:new_decimal_place]
+# print new_integer, "new integer"
+# creates if statements for printing new integer
+if rounding_number < "5": 
+    print (integer)
+#if rounding_number >= "5":
+else:
+    print (new_integer)
